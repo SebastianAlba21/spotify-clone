@@ -1,13 +1,25 @@
 {
-	"extends": "astro/tsconfigs/base",
-	"compilerOptions": {
-		"baseUrl": ".",
-		"paths": {
-			"@/*": ["src/*"],
-			"@/components": ["src/components/*"],
-			"@/icons": ["src/icons/*"],
-			"@/layouts": ["src/layouts/*"],
-			"@/lib": ["src/lib/*"]
-		}
-	}
+  "extends": "astro/tsconfigs/base",
+  "compilerOptions": {
+    "baseUrl": "C:/Users/Sebastian/OneDrive/Desktop/Personal/spotify-clone",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ],
+      "@/components": [
+        "src/components/*"
+      ],
+      "@/icons": [
+        "src/icons/*"
+      ],
+      "@/layouts": [
+        "src/layouts/*"
+      ],
+      "@/lib": [
+        "src/lib/*"
+      ]
+    },
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
+  }
 }

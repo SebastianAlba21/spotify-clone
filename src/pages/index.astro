@@ -3,6 +3,7 @@ import { playlists } from '@/lib/data'
 import Layout from '@/layouts/Layout.astro'
 import PlayListItemCard from '@/components/PlayListItemCard.astro'
 import SpotifyLogo from '@/icons/Spotify.astro'
+import Greeting from '@/components/Greeting.svelte'
 ---
 
 <Layout title="Spotify">
@@ -10,7 +11,10 @@ import SpotifyLogo from '@/icons/Spotify.astro'
 		id="playlist-container"
 		class="relative transition duration-1000 bg-green-600 text-white">
 		<div class="relative z-10 px-6 pt-10">
-			<SpotifyLogo/>
+			<div class="flex items-center justify-start gap-5">
+				<SpotifyLogo />
+				<Greeting />
+			</div>
 			<div class="flex flex-wrap mt-6 gap-4">
 				{playlists.map(playlist => <PlayListItemCard playlist={playlist} />)}
 			</div>
