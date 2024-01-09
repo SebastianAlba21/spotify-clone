@@ -16,7 +16,6 @@ export function CardPlayButton({ id }) {
 				const { playlist, songs } = data
 				setIsPlaying(true)
 				setCurrentMusic({ songs, playlist, song: songs[0] })
-				console.log({ songs, playlist })
 			})
 	}
 
