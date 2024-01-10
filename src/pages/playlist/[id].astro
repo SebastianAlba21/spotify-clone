@@ -1,7 +1,8 @@
 ---
-import { allPlaylists, songs } from '@/lib/data'
+import MusicsTable from '@/components/MusicsTable.astro'
 import Layout from '@/layouts/Layout.astro'
-import PlayListItemCard from '@/components/PlayListItemCard.astro'
+import { allPlaylists, songs } from '@/lib/data'
+import { CardPlayButton } from '@/components/CardPlayButton.jsx'
 
 const { id } = Astro.params
 const playlist = allPlaylists.find(playlist => playlist.id === id)
@@ -13,7 +14,7 @@ const playListSongs = songs.filter(song => song.albumId === playlist?.albumId)
 		id="playlist-container"
 		class="relative flex flex-col h-ful bg-zinc-900 text-white overflow-x-hidden"
 		transition:name=`playlist ${playlist?.id} box`>
-		<header class="flex flex-row gap-8 px-6 mt-12">
+		<header class="flex flex-row gap-8 px-6 mt-12 ml-12">
 			<picture class="h-52 w-52 aspect-square flex-none">
 				<img
 					src={playlist?.cover}
@@ -43,8 +44,17 @@ const playListSongs = songs.filter(song => song.albumId === playlist?.albumId)
 				</div>
 			</div>
 		</header>
+		<div class="pl-6 pt-6">
+			<CardPlayButton
+				id={id}
+				client:load
+				size="large"
+			/>
+		</div>
 		<div class="relative z-10 px-6 pt-10"></div>
+		<div class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/80 -z-[1]"></div>
+		<section class="p-6">
+			<MusicsTable songs={playListSongs} />
+		</section>
 	</div>
 </Layout>
-
-<style></style>
